@@ -13,23 +13,23 @@ You'll find this extension at 'Toolbox\Extensions\Optical GaoFen Auto Process' w
 
 
 # Parameters Guide
-TGZ Files(required): original TGZ files with name ends with '.tar.gz'
+TGZ Files(required):&ensp;&ensp;&ensp;original TGZ files with name ends with '.tar.gz'
 
-DEM: Digital Elevation Model used to RPCOrthorectification(default: e.Root_Dir + 'data\GMTED2010.jp2')
+DEM:&ensp;&ensp;&ensp;Digital Elevation Model used to RPCOrthorectification(default: e.Root_Dir + 'data\GMTED2010.jp2')
 
-Shapefile: shapefile used to subset and mask the imagery(default: !NULL)
+Shapefile:&ensp;&ensp;&ensp;shapefile used to subset and mask the imagery(default: !NULL)
 
-Registration: whether do registration based on PAN(default: false)
+Registration:&ensp;&ensp;&ensp;whether do registration based on PAN(default: false)
 
-Fusion Method: imagery fusion method(default: NNDiffusePanSharpening)
+Fusion Method:&ensp;&ensp;&ensp;imagery fusion method(default: NNDiffusePanSharpening)
 
-QUAC: whether do QUick Atmospheric Correction(default: true)
+QUAC:&ensp;&ensp;&ensp;whether do QUick Atmospheric Correction(default: true)
 
-Divide 10k: whether divide 10000 on the outcome of QUAC(default: false)
+Divide 10k:&ensp;&ensp;&ensp;whether divide 10000 on the outcome of QUAC(default: false)
 
-Display Result: whether diplay result on screen(default: CIR)
+Display Result:&ensp;&ensp;&ensp;whether diplay result on screen(default: CIR)
 
-Output(required): output file name in ENVI format
+Output(required):&ensp;&ensp;&ensp;output file name in ENVI format
 
 
 # Reminder
