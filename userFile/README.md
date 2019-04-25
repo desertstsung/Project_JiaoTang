@@ -13,33 +13,34 @@ You'll find this extension at 'Toolbox\Extensions\Optical GaoFen Auto Process' w
 
 
 # Usage
-TGZ Files(required):&ensp;&ensp;&ensp;original TGZ file(s) with name ends with '.tar.gz'
++ ```TGZ Files(required)```:&ensp;&ensp;&ensp;original TGZ file(s) with name ends with '.tar.gz'
 
-DEM:&ensp;&ensp;&ensp;Digital Elevation Model used to RPCOrthorectification(default: e.Root_Dir + 'data\GMTED2010.jp2')
++ ```DEM```:&ensp;&ensp;&ensp;Digital Elevation Model used to RPCOrthorectification(default: e.Root_Dir + 'data\GMTED2010.jp2')
 
-Shapefile:&ensp;&ensp;&ensp;shapefile(s) used to subset and mask the imagery(default: !NULL)
++ ```Shapefile```:&ensp;&ensp;&ensp;shapefile(s) used to subset and mask the imagery(default: !NULL)
 
-Registration:&ensp;&ensp;&ensp;whether do registration based on PAN(default: false)
++ ```Registration```:&ensp;&ensp;&ensp;whether do registration based on PAN(default: false)
 
-Fusion Method:&ensp;&ensp;&ensp;imagery fusion method(default: NNDiffusePanSharpening)
++ ```Fusion Method```:&ensp;&ensp;&ensp;imagery fusion method(default: NNDiffusePanSharpening)
 
-QUAC:&ensp;&ensp;&ensp;whether do QUick Atmospheric Correction(default: true)
++ ```QUAC```:&ensp;&ensp;&ensp;whether do QUick Atmospheric Correction(default: true)
 
-Divide 10k:&ensp;&ensp;&ensp;whether divide 10000 on the outcome of QUAC(default: false)
++ ```Divide 10k```:&ensp;&ensp;&ensp;whether divide 10000 on the outcome of QUAC(default: false)
 
-Display Result:&ensp;&ensp;&ensp;whether diplay result on screen(default: CIR)
++ ```Display Result```:&ensp;&ensp;&ensp;whether diplay result on screen(default: CIR)
 
-Output(required):&ensp;&ensp;&ensp;output file(s) in ENVI format
++ ```Output(required)```:&ensp;&ensp;&ensp;output file(s) in ENVI format
 
 
 # Note
-1. IDL85/ENVI53 and higher is required
-2. One-output for one-input or multi-output for identity amount input
-3. One-shapefile for Multi/one-input or multi-shapefile for identity amount input
++ IDL85/ENVI53 and higher is required
++ One-output for one-input or multi-output for identity amount input
++ One-shapefile for Multi/one-input or multi-shapefile for identity amount input
 
 
 # Egg
 Update check is available by choose 'Divide 10k' without 'QUAC'
 
 
-# [CSDN Blog of This Extension](https://blog.csdn.net/desertsTsung/article/details/84679969)
+# CSDN BLOG
+https://blog.csdn.net/desertsTsung/article/details/84679969
