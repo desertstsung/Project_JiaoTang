@@ -13,11 +13,11 @@ You'll find this extension at 'Toolbox\Extensions\Optical GaoFen Auto Process' w
 
 
 # Usage
-TGZ Files(required):&ensp;&ensp;&ensp;original TGZ files with name ends with '.tar.gz'
+TGZ Files(required):&ensp;&ensp;&ensp;original TGZ file(s) with name ends with '.tar.gz'
 
 DEM:&ensp;&ensp;&ensp;Digital Elevation Model used to RPCOrthorectification(default: e.Root_Dir + 'data\GMTED2010.jp2')
 
-Shapefile:&ensp;&ensp;&ensp;shapefile used to subset and mask the imagery(default: !NULL)
+Shapefile:&ensp;&ensp;&ensp;shapefile(s) used to subset and mask the imagery(default: !NULL)
 
 Registration:&ensp;&ensp;&ensp;whether do registration based on PAN(default: false)
 
@@ -29,13 +29,13 @@ Divide 10k:&ensp;&ensp;&ensp;whether divide 10000 on the outcome of QUAC(default
 
 Display Result:&ensp;&ensp;&ensp;whether diplay result on screen(default: CIR)
 
-Output(required):&ensp;&ensp;&ensp;output file name in ENVI format
+Output(required):&ensp;&ensp;&ensp;output file(s) in ENVI format
 
 
 # Note
-1. ENVI52 & ENVI51 are NOT supported yet
+1. IDL85/ENVI53 and higher is required
 2. One-output for one-input or multi-output for identity amount input
-3. One shapefile for Multi/one-input or multi-shapefile for identity amount input
+3. One-shapefile for Multi/one-input or multi-shapefile for identity amount input
 
 
 # Egg
