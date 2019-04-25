@@ -1,2 +1,1 @@
-*.h linguist-language=IDL
-*.m linguist-language=IDL
+*.pro linguist-language=IDL
