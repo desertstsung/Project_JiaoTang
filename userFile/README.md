@@ -39,7 +39,7 @@ Output(required):&ensp;&ensp;&ensp;output file name in ENVI format
 
 
 # Egg
-Update check is available by choose 'Divide 10k' while not QUAC
+Update check is available by choose 'Divide 10k' without 'QUAC'
 
 
 # CSDN Blog of This Extension
