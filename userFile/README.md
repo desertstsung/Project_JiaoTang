@@ -32,7 +32,7 @@ You'll find this extension at 'Toolbox\Extensions\Optical GaoFen Auto Process' w
 ```Output(required)```:output file(s) in ENVI format
 
 
-# Note
+# Notice
 + **IDL85/ENVI53** and higher is required
 + One-output for one-input or multi-output for identity amount input
 + One-shapefile for Multi/one-input or multi-shapefile for identity amount input
