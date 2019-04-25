@@ -42,5 +42,4 @@ Output(required):&ensp;&ensp;&ensp;output file(s) in ENVI format
 Update check is available by choose 'Divide 10k' without 'QUAC'
 
 
-# CSDN Blog of This Extension
-https://blog.csdn.net/desertsTsung/article/details/84679969
+# [CSDN Blog of This Extension](https://blog.csdn.net/desertsTsung/article/details/84679969)
