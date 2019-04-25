@@ -58,9 +58,9 @@ PRO Surf_Ref, tgzFns = tgzFns, $
 
     ;Extraction of satellite, sensor and imaging time from XML file
     xmlFn = FILE_SEARCH(outDir, '*.xml')
-    xmlFile = xmlFn[-1]
-    IF (FILE_BASENAME(xmlFile)).Contains('order') THEN $
-      xmlFile = xmlFn[1]
+    xmlFile = xmlFn[0]
+    IF (FILE_BASENAME(xmlFile)).Contains('GF4') THEN $
+      xmlFile = xmlFn[-1]
 
     sat = getNodeValue(xmlFile, 'SatelliteID')
     sen = getNodeValue(xmlFile, 'SensorID')
