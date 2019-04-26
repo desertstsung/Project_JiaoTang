@@ -16,5 +16,6 @@
 + adjust the method of dividing 10,000 on QUAC
 + adjust COMMON to DEFSYSV
 + remove tips prompt
+
 ``Before V19.04.27``
-[My CSDN Blog](https://blog.csdn.net/desertsTsung/article/details/84679969)
++ [My CSDN Blog](https://blog.csdn.net/desertsTsung/article/details/84679969)
