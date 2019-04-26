@@ -1,6 +1,6 @@
 {
   "name":"Surf_Ref",
-  "displayName":"Project JiaoTang_V19.04.26",
+  "displayName":"Project JiaoTang_V19.04.27",
   "executionType":"asynchronous",
   "invocationType":"keywords",
   "taskReset":"no",
@@ -94,7 +94,7 @@
       "direction":"input",
       "description":"Version of this extension",
       "parameterType":"optional",
-      "defaultValue": "19.04.26",
+      "defaultValue": "19.04.27",
       "hidden":true
     }
   ]
