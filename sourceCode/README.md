@@ -23,7 +23,7 @@
 
 ```radcal.pro```:Radiance Calibration
 
-```rastersubsetviashapefile.pro```:Subset and mask raster from certain shapefile
+```rastersubsetviashapefile.pro```:Subset and mask raster from certain shapefile(many thanks to [this bolg](http://blog.sina.cn/dpool/blog/enviidl))
 
 ```shpInRaster.pro```:Judgment of whether to do orthorectification of GF6-WFV to process selectively
 
