@@ -29,7 +29,7 @@ pro Jiaotang
 
   ;Get ENVI session
   e = ENVI(/CURRENT)
-  defsysv, '!e', ENVI(/CURRENT), 1
+  DEFSYSV, '!e', ENVI(/CURRENT), 1
 
   sr_init = ENVIRPCRasterSpatialRef(/err)
   raster_init = ENVIRaster(/err)
