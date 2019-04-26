@@ -82,51 +82,12 @@ PRO Surf_Ref, tgzFns = tgzFns, $
       orthorectification, panfn, demData, $
         output = tmpFnPANOrtho
       FILE_DELETE, outDir, /RECURSIVE
-
-      ;2_Subset raster if there is a region
-      nRegion = N_ELEMENTS(region4Subset)
-      IF nRegion NE 0 THEN BEGIN
-        nFile = N_ELEMENTS(tgzFns)
-        IF nRegion NE nFile THEN BEGIN
-          RasterSubsetViaShapefile, tmpFnMSSOrtho, $
-            shpFile = region4Subset[0], outFile = tmpFnMSSSub, r_fid=r_fid
-          RasterSubsetViaShapefile, tmpFnPANOrtho, $
-            shpFile = region4Subset[0], outFile = tmpFnPANSub, r_fid=r_fid
-        ENDIF ELSE BEGIN
-          RasterSubsetViaShapefile, tmpFnMSSOrtho, $
-            shpFile = region4Subset[index], outFile = tmpFnMSSSub, r_fid=r_fid
-          RasterSubsetViaShapefile, tmpFnPANOrtho, $
-            shpFile = region4Subset[index], outFile = tmpFnPANSub, r_fid=r_fid
-        ENDELSE
-      ENDIF
-
-      ;3_Transform digital number into radiance
-      msgain = FLTARR(4) & msoffs = FLTARR(4)
-      pngain = FLTARR(1) & pnoffs = FLTARR(1)
-      flag_rad = gainOffsetExtForMSPN(msgain, msoffs, $
-        pngain, pnoffs, satsen, year)
-
-      mss = tmpFnMSSSub EQ !NULL ? $
-        tmpFnMSSOrtho : tmpFnMSSSub
-      pan = tmpFnPANSub EQ !NULL ? $
-        tmpFnPANOrtho : tmpFnPANSub
-
-      IF flag_rad THEN BEGIN
-        radCal, mss, msgain, msoffs, satsen, output = tmpFnMSSRad
-        radCal, pan, pngain, pnoffs, satsen, output = tmpFnPANRad
-      ENDIF
-
-      ;4_Warp MSS image based on PAN image
+      
+      ;2_Warp MSS image based on PAN image
       IF registration THEN BEGIN
         tps = ENVITask('GenerateTiePointsByCrossCorrelation')
-        mss = tmpFnMSSRad EQ !NULL ? $
-          (tmpFnMSSSub EQ !NULL ? $
-          tmpFnMSSOrtho : tmpFnMSSSub) : tmpFnMSSRad
-        pan = tmpFnPANRad EQ !NULL ? $
-          (tmpFnPANSub EQ !NULL ? $
-          tmpFnPANOrtho : tmpFnPANSub) : tmpFnPANRad
-        mss = !e.OpenRaster(mss)
-        pan = !e.OpenRaster(pan)
+        mss = !e.OpenRaster(tmpFnMSSOrtho)
+        pan = !e.OpenRaster(tmpFnPANOrtho)
         tps.INPUT_RASTER1 = pan
         tps.INPUT_RASTER2 = mss
         tps.Execute
@@ -150,12 +111,49 @@ PRO Surf_Ref, tgzFns = tgzFns, $
         pan.Close
       ENDIF
 
-      ;5_MSS image BSQ to BIL
+      ;3_Subset raster if there is a region
       mss = tmpFnMSSWarp EQ !NULL ? $
-        (tmpFnMSSRad EQ !NULL ? $
+        tmpFnMSSOrtho : tmpFnMSSWarp
+      pan = tmpFnPANOrtho
+      nRegion = N_ELEMENTS(region4Subset)
+      IF nRegion NE 0 THEN BEGIN
+        nFile = N_ELEMENTS(tgzFns)
+        IF nRegion NE nFile THEN BEGIN
+          RasterSubsetViaShapefile, mss, $
+            shpFile = region4Subset[0], outFile = tmpFnMSSSub, r_fid=r_fid
+          RasterSubsetViaShapefile, pan, $
+            shpFile = region4Subset[0], outFile = tmpFnPANSub, r_fid=r_fid
+        ENDIF ELSE BEGIN
+          RasterSubsetViaShapefile, mss, $
+            shpFile = region4Subset[index], outFile = tmpFnMSSSub, r_fid=r_fid
+          RasterSubsetViaShapefile, pan, $
+            shpFile = region4Subset[index], outFile = tmpFnPANSub, r_fid=r_fid
+        ENDELSE
+      ENDIF
+
+      ;4_Transform digital number into radiance
+      msgain = FLTARR(4) & msoffs = FLTARR(4)
+      pngain = FLTARR(1) & pnoffs = FLTARR(1)
+      flag_rad = gainOffsetExtForMSPN(msgain, msoffs, $
+        pngain, pnoffs, satsen, year)
+
+      mss = tmpFnMSSSub EQ !NULL ? $
+        (tmpFnMSSWarp EQ !NULL ? $
+        tmpFnMSSOrtho : tmpFnMSSWarp) : tmpFnMSSSub
+      pan = tmpFnPANSub EQ !NULL ? $
+        tmpFnPANOrtho : tmpFnPANSub
+
+      IF flag_rad THEN BEGIN
+        radCal, mss, msgain, msoffs, satsen, output = tmpFnMSSRad
+        radCal, pan, pngain, pnoffs, satsen, output = tmpFnPANRad
+      ENDIF
+
+      ;5_MSS image BSQ to BIL
+      mss = tmpFnMSSRad EQ !NULL ? $
         (tmpFnMSSSub EQ !NULL ? $
-        tmpFnMSSOrtho : tmpFnMSSSub) : $
-        tmpFnMSSRad) : tmpFnMSSWarp
+        (tmpFnMSSWarp EQ !NULL ? $
+        tmpFnMSSOrtho : tmpFnMSSWarp) : $
+        tmpFnMSSSub) : tmpFnMSSRad
       ENVI_OPEN_FILE, mss, r_fid=fid
       ENVI_FILE_QUERY, fid, dims=dims, nb=nb, fname=fname
       ENVI_DOIT,'convert_inplace_doit', fid=fid, pos=LINDGEN(nb), $
