@@ -4,3 +4,17 @@
 [Task file and already saved binary file](https://github.com/desertstsung/Project_JiaoTang/tree/master/userFile#about)
 # For Interest
 [Source code of this project](https://github.com/desertstsung/Project_JiaoTang/tree/master/sourceCode#all-pro-files)
+# History
+``V19.04.27``
++ new sensor GaoFen6-PMS/WFV supported
++ brand new batch mode
++ gzip file instead of image(s)
++ fix bug of subset via shapefile
++ adjust calibration coefficient of 2019
++ adjust registration after orthorectification
++ adjust adjunction of wavelength and units before calibration
++ adjust the method of dividing 10,000 on QUAC
++ adjust COMMON to DEFSYSV
++ remove tips prompt
+``Before V19.04.27``
+[My CSDN Blog](https://blog.csdn.net/desertsTsung/article/details/84679969)
