@@ -82,7 +82,7 @@ PRO Surf_Ref, tgzFns = tgzFns, $
       orthorectification, panfn, demData, $
         output = tmpFnPANOrtho
       FILE_DELETE, outDir, /RECURSIVE
-      
+
       ;2_Warp MSS image based on PAN image
       IF registration THEN BEGIN
         tps = ENVITask('GenerateTiePointsByCrossCorrelation')
@@ -154,11 +154,15 @@ PRO Surf_Ref, tgzFns = tgzFns, $
         (tmpFnMSSWarp EQ !NULL ? $
         tmpFnMSSOrtho : tmpFnMSSWarp) : $
         tmpFnMSSSub) : tmpFnMSSRad
-      ENVI_OPEN_FILE, mss, r_fid=fid
-      ENVI_FILE_QUERY, fid, dims=dims, nb=nb, fname=fname
-      ENVI_DOIT,'convert_inplace_doit', fid=fid, pos=LINDGEN(nb), $
-        dims=dims, o_interleave=1, r_fid=r_fid
-      ENVI_FILE_MNG, id=r_fid, /REMOVE
+      mssRaster = !e.OpenRaster(mss)
+      fid = ENVIRasterToFID(mssRaster)
+      IF mssRaster.INTERLEAVE NE 'bil' THEN BEGIN
+        ENVI_FILE_QUERY, fid, dims=dims, nb=nb, fname=fname
+        ENVI_DOIT,'convert_inplace_doit', fid=fid, pos=LINDGEN(nb), $
+          dims=dims, o_interleave=1, r_fid=r_fid
+        ENVI_FILE_MNG, id=r_fid, /REMOVE
+      ENDIF
+      mssRaster.Close
 
       ;6_Image fusion using PAN and MSS
       fsn = ENVITask(fusionMethod)
