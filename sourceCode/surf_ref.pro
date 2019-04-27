@@ -61,6 +61,8 @@ PRO Surf_Ref, tgzFns = tgzFns, $
     xmlFile = xmlFn[0]
     IF (FILE_BASENAME(xmlFile)).Contains('GF4') THEN $
       xmlFile = xmlFn[-1]
+    IF (FILE_BASENAME(xmlFile)).Contains('aux') THEN $
+      xmlFile = xmlFn[-2]
 
     sat = getNodeValue(xmlFile, 'SatelliteID')
     sen = getNodeValue(xmlFile, 'SensorID')
