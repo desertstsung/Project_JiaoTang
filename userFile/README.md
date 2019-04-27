@@ -1,7 +1,7 @@
 # About
 This Extension can automatically process GaoFen optical imageries taken by GF1-WFV, GF1-PMS, GF2-PMS, GF4-PMS, GF6-WFV, GF6-PMS.
 
-The process of images mainly contains orthorectification, spatialSubset(if a shapefile is provided), calibration, registration(if PAN is included), fusion(if PAN is included) and QUAC.
+The process of images mainly contains orthorectification, registration(if PAN is included), spatialSubset(if a shapefile is provided), calibration, fusion(if PAN is included) and QUAC.
 
 
 # Install
