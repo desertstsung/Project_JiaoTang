@@ -13,9 +13,9 @@ You'll find this extension at 'Toolbox\Extensions\Optical GaoFen Auto Process' w
 
 
 # Usage
-```TGZ Files(required)```:original TGZ file(s) with name ends with '.tar.gz'
+```TGZ Files(required)```:original tgz file(s) with name like 'GF6_WFV_E115.9_N38.0_20190407_L1A1119865144.tar.gz'
 
-```DEM```:Digital Elevation Model used to RPCOrthorectification(*default: e.Root_Dir + 'data\GMTED2010.jp2'*)
+```DEM```:Digital Elevation Model used to RPCOrthorectification(*default: '\Exelis\ENVI53\data\GMTED2010.jp2'*)
 
 ```Shapefile```:shapefile(s) used to subset and mask the imagery(*default: !NULL*)
 
