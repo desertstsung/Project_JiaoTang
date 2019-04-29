@@ -4,7 +4,7 @@
 [Task file and already saved binary file](https://github.com/desertstsung/Project_JiaoTang/tree/master/userFile#about)
 # For Interest
 [Source code of this project](https://github.com/desertstsung/Project_JiaoTang/tree/master/sourceCode#all-pro-files)
-# History
+# Release
 ``V19.04.27``
 + new sensor GaoFen6-PMS/WFV supported
 + brand new batch mode
