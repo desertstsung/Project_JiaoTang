@@ -5,6 +5,10 @@
 # For Interest
 [Source code of this project](https://github.com/desertstsung/Project_JiaoTang/tree/master/sourceCode#all-pro-files)
 # Release
+``V19.05.08``
++ code refactoring of subset by shapefile, using ENVI5 interface insead of Classic, removing mask operation for exchange
++ code simplify of unzip tgz file(s)
+
 ``V19.04.27``
 + new sensor GaoFen6-PMS/WFV supported
 + brand new batch mode
@@ -16,10 +20,6 @@
 + adjust the method of dividing 10,000 on QUAC
 + adjust COMMON to DEFSYSV
 + remove tips prompt
-
-``V19.05.08``
-+ code refactoring of subset by shapefile, using ENVI5 interface insead of Classic, removing mask operation for exchange
-+ code simplify of unzip tgz file(s)
 
 ``Before V19.04.27``
 + [My CSDN Blog](https://blog.csdn.net/desertsTsung/article/details/84679969)
