@@ -5,9 +5,9 @@ The process of image(s) mainly contains orthorectification, registration(if PAN 
 
 
 # Install
-[```Surf_Ref.task```](https://github.com/desertstsung/Project_JiaoTang/releases/download/V19.04.27/Surf_Ref.task) -> 'xx\Exelis\ENVI53\custom_code'
+[```Surf_Ref.task```](https://github.com/desertstsung/Project_JiaoTang/releases/download/V19.05.08/Surf_Ref.task) -> 'xx\Exelis\ENVI53\custom_code'
 
-[```jiaotang.sav```](https://github.com/desertstsung/Project_JiaoTang/releases/download/V19.04.27/jiaotang.sav) -> 'xx\Exelis\ENVI53\extensions'
+[```jiaotang.sav```](https://github.com/desertstsung/Project_JiaoTang/releases/download/V19.05.08/jiaotang.sav) -> 'xx\Exelis\ENVI53\extensions'
 
 You'll find this extension at 'Toolbox\Extensions\Optical GaoFen Auto Process' when you restart ENVI
 
