@@ -169,6 +169,8 @@ pro Surf_Ref, tgzFns = tgzFns, $
         tmpFnPANOrtho : tmpFnPANSub) : tmpFnPANRad
       mss = !e.OpenRaster(mss)
       pan = !e.OpenRaster(pan)
+      if fusionMethod eq 'NNDiffusePanSharpening' then $
+        resize, mss, pan, output = tmpFnMSSResize
       fsn.INPUT_LOW_RESOLUTION_RASTER = mss
       fsn.INPUT_HIGH_RESOLUTION_RASTER = pan
       tmpFnFusion = !e.GetTemporaryFilename()
@@ -203,6 +205,7 @@ pro Surf_Ref, tgzFns = tgzFns, $
         tmpFnMSSWarp eq !NULL ? 'none.dat' : tmpFnMSSWarp, $
         tmpFnPANSub eq !NULL ? 'none.dat' : tmpFnPANSub, $
         tmpFnPANRad eq !NULL ? 'none.dat' : tmpFnPANRad, $
+        tmpFnMSSResize eq !NULL ? 'none.dat' : tmpFnMSSResize, $
         tmpFnQUAC eq !NULL ? 'none.dat' : tmpFnQUAC, $
         tmpFnSurref eq !NULL ? 'none.dat' : tmpFnSurref]
       tmpHDRFn = tmpFn.Replace('dat','hdr')
