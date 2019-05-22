@@ -4,7 +4,10 @@
 [Task file and already saved binary file](https://github.com/desertstsung/Project_JiaoTang/tree/master/userFile#about)
 # For Interest
 [Source code of this project](https://github.com/desertstsung/Project_JiaoTang/tree/master/sourceCode#all-pro-files)
-# Release
+# Releases
+```V19.05.22```
++ optimization of NNDiffuse pan sharpening(when the pixel size of mss is not an integral multiple of the pixel size of pan, especially GaoFen6-PMS)
+
 ``V19.05.08``
 + code refactoring of subset by shapefile, using ENVI5 interface insead of Classic, removing mask operation for exchange
 + code simplify of unzip tgz file(s)
