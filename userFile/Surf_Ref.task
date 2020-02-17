@@ -1,0 +1,101 @@
+{
+  "name":"Surf_Ref",
+  "displayName":"Project JiaoTang_V19.05.22",
+  "executionType":"asynchronous",
+  "invocationType":"keywords",
+  "taskReset":"no",
+  "baseClass":"ENVITaskFromProcedure",
+  "routine":"Surf_Ref",
+  "description":"This Extension is Aimed at Processing Imageries Taken by Chinese GaoFen Optical Satellites, Include GF1, GF2, GF4 and GF6",
+  "parameters":[
+    {
+      "name":"tgzFns",
+      "displayName":"TGZ Files",
+      "dataType":"ENVIURI[*]",
+      "direction":"input",
+      "description":"Original TGZ file with name ends with tar.gz",
+      "parameterType":"required"
+    },
+    {
+      "name":"demData",
+      "displayName":"DEM",
+      "dataType":"ENVIRaster",
+      "direction":"input",
+      "description":"Digital Elevation Model used to RPCOrthorectification, Leave this blank if there's no matched DEM, Then it will use the default DEM named 'GMTED2010.jp2'",
+      "parameterType":"optional"
+    },
+    {
+      "name":"region4Subset",
+      "displayName":"Shapefile",
+      "dataType":"ENVIURI[*]",
+      "direction":"input",
+      "description":"Used to subset and mask the imagery",
+      "parameterType":"optional"
+    },
+    {
+      "name":"registration",
+      "displayName":"Registration",
+      "dataType":"Bool",
+      "direction":"input",
+      "description":"Whether do registration based on PAN",
+      "parameterType":"optional",
+      "defaultValue":false
+    },
+    {
+      "name":"fusionMethod",
+      "displayName":"Fusion Method",
+      "dataType":"string",
+      "choiceList":["NNDiffusePanSharpening","GramSchmidtPanSharpening"],
+      "defaultValue":"NNDiffusePanSharpening",
+      "direction":"input",
+      "description":"Imagery fusion method. In my view, The former algorithm hold a better spectral information from MSS, While the other keep a better texture from PAN",
+      "parameterType":"optional"
+    },
+    {
+      "name":"quac",
+      "displayName":"QUAC",
+      "dataType":"Bool",
+      "direction":"input",
+      "description":"Whether do QUick Atmospheric Correction",
+      "parameterType":"optional",
+      "defaultValue":true
+    },
+    {
+      "name":"divide10k",
+      "displayName":"Divide 10k",
+      "dataType":"Bool",
+      "direction":"input",
+      "description":"Whether divide 10k, since the outcome of QUAC is scaled into two-byte unsigned integers using a reflectance scale factor of 10,000",
+      "parameterType":"optional",
+      "defaultValue":false
+    },
+    {
+      "name":"showOutcome",
+      "displayName":"Display Result",
+      "dataType":"string",
+      "choiceList":["NO","True Color","CIR"],
+      "direction":"input",
+      "description":"Whether diplay result on screen",
+      "parameterType":"required",
+      "defaultValue":"CIR"
+    },
+    {
+      "name":"outputURI",
+      "displayName":"Output",
+      "dataType":"ENVIURI[*]",
+      "direction":"input",
+      "description":"Output File Name in ENVI format, add .dat if like",
+      "parameterType":"required"
+    },
+    {
+      "name":"__version__",
+      "displayName":"Version",
+      "dataType":"String",
+      "direction":"input",
+      "description":"Version of this extension",
+      "parameterType":"optional",
+      "defaultValue": "19.05.22",
+      "hidden":true
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+*.pro linguist-language=IDL
+*.task linguist-language=IDL
